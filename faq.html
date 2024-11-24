@@ -378,45 +378,28 @@
         ================================================== -->
 <!-- Horizontal Image Slider -->
 	    <section>
-<div class="horizontal-slider-container">
-  <div class="horizontal-slider">
-    <img src="img/blog/blog-03.jpg" alt="Image 1">
-    <img src="img/blog/blog-03.jpg" alt="Image 2">
-    <img src="img/blog/blog-03.jpg" alt="Image 3">
-    <img src="img/blog/blog-03.jpg" alt="Image 4">
-  </div>
+<div style="text-align:center;">
+  <!-- First Image -->
+  <details open>
+    <summary>Image 1</summary>
+    <img src="img/blog/blog-03.jpg" alt="Image 1" style="max-width:100%;height:auto;">
+    <a href="#img2">Next</a>
+  </details>
+
+  <!-- Second Image -->
+  <details id="img2">
+    <summary>Image 2</summary>
+    <img src="img/blog/blog-03.jpg" alt="Image 2" style="max-width:100%;height:auto;">
+    <a href="#img1">Previous</a> | <a href="#img3">Next</a>
+  </details>
+
+  <!-- Third Image -->
+  <details id="img3">
+    <summary>Image 3</summary>
+    <img src="img/blog/blog-03.jpg" alt="Image 3" style="max-width:100%;height:auto;">
+    <a href="#img2">Previous</a>
+  </details>
 </div>
-
-<style>
-  /* Basic styling for the horizontal slider container */
-  .horizontal-slider-container {
-    width: 80%; /* Adjust the width of the slider */
-    max-width: 900px; /* Max width to prevent the slider from getting too large */
-    height: 300px; /* Adjust the height of the slider */
-    overflow: hidden;
-    position: relative;
-    margin: 50px auto; /* Centers the slider horizontally */
-    border: 2px solid #ccc;
-    border-radius: 10px;
-  }
-
-  .horizontal-slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .horizontal-slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Create sliding effect on hover (move horizontally) */
-  .horizontal-slider-container:hover .horizontal-slider {
-    transform: translateX(-100%);
-  }
-
-</style>
 
 	</section>
 
