@@ -1,0 +1,13 @@
+import {View, Button, Text} from 'react-native';
+import {useMoonPaySdk} from '@moonpay/react-native-moonpay-sdk';
+
+const YourComponent = () => {
+  const {openWithInAppBrowser, generateUrlForSigning, updateSignature} =
+    useMoonPaySdk({
+      flow: 'buy',
+      environment: 'sandbox',
+      params: {
+        apiKey: 'pk_test_key',
+      },
+    });
+};
