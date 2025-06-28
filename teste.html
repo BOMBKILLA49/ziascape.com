@@ -74,78 +74,58 @@
             background-color: #e6b800;
             color: #000000;
         }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h2 class="text-center mb-4">Recurring BTC Savings</h2>
-        <p class="text-center mb-4">Discover the convenience of our exclusive property maintenance program, exclusivley available only in Socorro, NM! Let us handle the upkeep of your property with our expert services, 
-          designed to reduce your tasks and simplify your life. From routine maintenance to comprehensive care, our team ensures your property stays in top shape, giving you more time to enjoy what matters 
-          most. Join now and experience hassle-free property management tailored to your needs!</p>
-        <form method="post" action="https://forms.un-static.com/forms/20498b1a2650cc2e25d22b39d309bac55c735de6" id="btc-form">
+        <h2 class="text-center mb-4">Socorro Property Maintenance Program</h2>
+        <p class="text-center mb-4">Discover the convenience of our exclusive property maintenance program, available only in Socorro, NM! Let us handle the upkeep of your property with our expert services, designed to reduce your tasks and simplify your life. From routine maintenance to comprehensive care, our team ensures your property stays in top shape, giving you more time to enjoy what matters most. Join now and experience hassle-free property management tailored to your needs!</p>
+        <form method="post" action="https://forms.un-static.com/forms/20498b1a2650cc2e25d22b39d309bac55c735de6" id="maintenance-form">
             <div class="form-group">
                 <label for="name" class="required">Name</label>
                 <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
             </div>
             <div class="form-group">
-                <label for="email" class="required">Phone Number</label>
-                <input type="phone" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                <label for="phone" class="required">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
             </div>
             <div class="form-group">
-                <label for="crypto_type" class="required">Cryptocurrency</label>
-                <select id="crypto_type" name="crypto_type" class="form-control" required>
-                    <option value="BTC">BTC</option>
-                    <option value="ETH">ETH</option>
-                    <option value="XRP">XRP</option>
-                    <option value="SOL">SOL</option>
-                    <option value="DOGE">DOGE</option>
-                    <option value="TRX">TRX</option>
-                    <option value="LINK">LINK</option>
-                    <option value="XLM">XLM</option>
-                    <option value="AVAX">AVAX</option>
-                    <option value="SHIB">SHIB</option>
-                    <option value="QNT">QNT</option>
-                    <option value="LTC">LTC</option>
-                    <option value="PEPE">PEPE</option>
-                    <option value="TRUMP">TRUMP</option>
-                    <option value="BONK">BONK</option>
+                <label for="email" class="required">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="property_address" class="required">Property Address</label>
+                <input type="text" id="property_address" name="property_address" class="form-control" placeholder="Enter property address" required>
+            </div>
+            <div class="form-group">
+                <label for="property_size" class="required">Property Size</label>
+                <select id="property_size" name="property_size" class="form-control" required>
+                    <option value="" disabled彼此
+
+                    <option value="small">Small (< 0.25 acres / ~10,890 sq ft)</option>
+                    <option value="medium">Medium (0.25–0.5 acres / ~10,890–21,780 sq ft)</option>
+                    <option value="large">Large (0.5–1 acre / ~21,780–43,560 sq ft)</option>
+                    <option value="extra_large">Extra Large (> 1 acre / ~43,560+ sq ft)</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="crypto_address" class="required" id="crypto_address_label">Enter BTC Address</label>
-                <input type="text" id="crypto_address" name="crypto_address" class="form-control" placeholder="Enter BTC address" required>
-            </div>
-            <div class="form-group">
-                <label for="amount" class="required">Contribution Amount (USD)</label>
-                <select id="amount" name="amount" class="form-control" required>
-                    <option value="5">$5</option>
-                    <option value="10">$10</option>
-                    <option value="20">$20</option>
-                    <option value="40">$40</option>
-                    <option value="80">$80</option>
-                    <option value="100">$100</option>
-                    <option value="150">$150</option>
-                    <option value="200">$200</option>
-                    <option value="300">$300</option>
-                    <option value="400">$400</option>
-                    <option value="800">$800</option>
-                    <option value="1000">$1000</option>
-                    <option value="2000">$2000</option>
-                    <option value="5000">$5000</option>
-                    <option value="10000">$10000</option>
+                <label for="plan_type" class="required">Plan Type</label>
+                <select id="plan_type" name="plan_type" class="form-control" required>
+                    <option value="" disabled selected>Select a plan</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="yearly">Yearly</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="recurrence">Recurrence Frequency</label>
-                <select id="recurrence" name="recurrence" class="form-control">
-                    <option value="daily">Every Day</option>
-                    <option value="weekly">Every Week</option>
-                    <option value="monthly">Every Month</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="day_of_week">Day of Recurrence</label>
-                <select id="day_of_week" name="day_of_week" class="form-control">
+            <div class="form-group" id="day_of_recurrence_group">
+                <label for="day_of_recurrence" class="required">Day of Recurrence</label>
+                <select id="day_of_recurrence" name="day_of_recurrence" class="form-control" required>
+                    <option value="" disabled selected>Select a day</option>
                     <option value="monday">Monday</option>
                     <option value="tuesday">Tuesday</option>
                     <option value="wednesday">Wednesday</option>
@@ -155,8 +135,61 @@
                     <option value="sunday">Sunday</option>
                 </select>
             </div>
+            <div class="form-group" id="month_of_recurrence_group" style="display: none;">
+                <label for="month_of_recurrence" class="required">Month of Recurrence (Yearly Plan)</label>
+                <select id="month_of_recurrence" name="month_of_recurrence" class="form-control">
+                    <option value="" disabled selected>Select a month</option>
+                    <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="required">Services Needed (Select at least one)</label>
+                <div class="checkbox-group">
+                    <div>
+                        <input type="checkbox" id="lawn_care" name="services" value="lawn_care">
+                        <label for="lawn_care">Lawn Care</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="landscaping" name="services" value="landscaping">
+                        <label for="landscaping">Landscaping</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="repairs" name="services" value="repairs">
+                        <label for="repairs">Repairs</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cleaning" name="services" value="cleaning">
+                        <label for="cleaning">Cleaning</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="snow_removal" name="services" value="snow_removal">
+                        <label for="snow_removal">Snow Removal</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="amount" class="required">Plan Cost (USD)</label>
+                <select id="amount" name="amount" class="form-control" required>
+                    <option value="" disabled selected>Select property size and plan type first</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Additional Comments or Special Instructions</label>
+                <textarea id="comments" name="comments" class="form-control" placeholder="Enter any special instructions or comments" rows="4"></textarea>
+            </div>
             <div class="button-group mt-4">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="pp-HN6B2Z3A5W4FL">Submit</button>
             </div>
         </form>
     </div>
@@ -165,35 +198,88 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Update crypto address label and placeholder
-            $("#crypto_type").on("change", function() {
-                const selectedCrypto = $(this).val();
-                $("#crypto_address_label").text(`Enter ${selectedCrypto} Address`);
-                $("#crypto_address").attr("placeholder", `Enter ${selectedCrypto} address`);
+            // Pricing based on property size and plan type
+            const pricing = {
+                small: { weekly: 30, monthly: 100, yearly: 1000 },
+                medium: { weekly: 50, monthly: 150, yearly: 1500 },
+                large: { weekly: 80, monthly: 250, yearly: 2500 },
+                extra_large: { weekly: 120, monthly: 400, yearly: 4000 }
+            };
+
+            // Update plan cost options based on property size and plan type
+            function updatePlanCost() {
+                const propertySize = $("#property_size").val();
+                const planType = $("#plan_type").val();
+                if (propertySize && planType) {
+                    const cost = pricing[propertySize][planType];
+                    $("#amount").html(`
+                        <option value="${cost}">$${cost} (${planType.charAt(0).toUpperCase() + planType.slice(1)})</option>
+                    `);
+                } else {
+                    $("#amount").html(`
+                        <option value="" disabled selected>Select property size and plan type first</option>
+                    `);
+                }
+            }
+
+            // Update recurrence day options and show/hide month field
+            $("#plan_type").on("change", function() {
+                const planType = $(this).val();
+                if (planType === "yearly") {
+                    $("#month_of_recurrence_group").show();
+                    $("#month_of_recurrence").prop("required", true);
+                } else {
+                    $("#month_of_recurrence_group").hide();
+                    $("#month_of_recurrence").prop("required", false);
+                }
+                // Adjust day of recurrence for monthly plan
+                if (planType === "monthly") {
+                    $("#day_of_recurrence").html(`
+                        <option value="" disabled selected>Select a day</option>
+                        ${Array.from({length: 31}, (_, i) => i + 1).map(day => `<option value="${day}">${day}</option>`).join('')}
+                    `);
+                } else {
+                    $("#day_of_recurrence").html(`
+                        <option value="" disabled selected>Select a day</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                    `);
+                }
+                updatePlanCost();
             });
 
-            // Update form action based on amount (client-side for now)
-            $("#amount").on("change", function() {
-                const selectedAmount = $(this).val();
-                // For now, all submit to Un-static; $5 redirects to PayPal server-side
-                $("#btc-form").attr("action", "https://forms.un-static.com/forms/20498b1a2650cc2e25d22b39d309bac55c735de6");
-            });
+            // Update plan cost when property size changes
+            $("#property_size").on("change", updatePlanCost);
 
-            // Log submission for verification
-            $("#btc-form").on("submit", function(e) {
+            // Validate at least one service is selected
+            $("#maintenance-form").on("submit", function(e) {
+                const servicesChecked = $("input[name='services']:checked").length;
+                if (servicesChecked === 0) {
+                    e.preventDefault();
+                    alert("Please select at least one service.");
+                    return false;
+                }
+
+                // Log submission for verification
                 console.log("Submitting form to: " + this.action);
                 console.log({
                     name: $("#name").val(),
+                    phone: $("#phone").val(),
                     email: $("#email").val(),
-                    crypto_type: $("#crypto_type").val(),
-                    crypto_address: $("#crypto_address").val(),
+                    property_address: $("#property_address").val(),
+                    property_size: $("#property_size").val(),
+                    plan_type: $("#plan_type").val(),
+                    day_of_recurrence: $("#day_of_recurrence").val(),
+                    month_of_recurrence: $("#month_of_recurrence").val(),
+                    services: $("input[name='services']:checked").map(function() { return this.value; }).get(),
                     amount: $("#amount").val(),
-                    recurrence: $("#recurrence").val(),
-                    day_of_week: $("#day_of_week").val()
+                    comments: $("#comments").val()
                 });
-                if ($("#amount").val() === "5") {
-                    console.log("After Un-static confirmation, expect redirect to: https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-93W19093VB403145GM6N6HZY");
-                }
             });
         });
     </script>
