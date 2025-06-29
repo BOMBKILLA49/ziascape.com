@@ -175,7 +175,7 @@
                     </div>
                     <div class="col-lg-8 mt-5 order-1 order-lg-2">
                         <div>
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -261,6 +261,7 @@
 <body>
     <div class="form-container">
         <h2 class="text-center mb-4">Socorro Property Maintenance Program</h2>
+        <p class="text-center mb-4">Trusted by Socorro’s tight-knit community, our property maintenance services deliver exceptional care for our small town’s homes and businesses.</p>
         <form method="post" action="https://forms.un-static.com/forms/20498b1a2650cc2e25d22b39d309bac55c735de6" id="maintenance-form">
             <div class="form-group">
                 <label for="name" class="required">Name</label>
@@ -281,8 +282,7 @@
             <div class="form-group">
                 <label for="property_size" class="required">Property Size</label>
                 <select id="property_size" name="property_size" class="form-control" required>
-                    <option value="" disabled彼此
-
+                    <option value="" disabled selected>Select property size</option>
                     <option value="small">Small (< 0.25 acres / ~10,890 sq ft)</option>
                     <option value="medium">Medium (0.25–0.5 acres / ~10,890–21,780 sq ft)</option>
                     <option value="large">Large (0.5–1 acre / ~21,780–43,560 sq ft)</option>
@@ -293,6 +293,7 @@
                 <label for="plan_type" class="required">Plan Type</label>
                 <select id="plan_type" name="plan_type" class="form-control" required>
                     <option value="" disabled selected>Select a plan</option>
+                    <option value="one_time">One-Time</option>
                     <option value="weekly">Weekly</option>
                     <option value="monthly">Monthly</option>
                     <option value="yearly">Yearly</option>
@@ -376,10 +377,10 @@
         $(document).ready(function() {
             // Pricing based on property size and plan type
             const pricing = {
-                small: { weekly: 30, monthly: 100, yearly: 1000 },
-                medium: { weekly: 50, monthly: 150, yearly: 1500 },
-                large: { weekly: 80, monthly: 250, yearly: 2500 },
-                extra_large: { weekly: 120, monthly: 400, yearly: 4000 }
+                small: { one_time: 30, weekly: 30, monthly: 100, yearly: 1000 },
+                medium: { one_time: 50, weekly: 50, monthly: 150, yearly: 1500 },
+                large: { one_time: 80, weekly: 80, monthly: 250, yearly: 2500 },
+                extra_large: { one_time: 120, weekly: 120, monthly: 400, yearly: 4000 }
             };
 
             // Update plan cost options based on property size and plan type
@@ -389,7 +390,7 @@
                 if (propertySize && planType) {
                     const cost = pricing[propertySize][planType];
                     $("#amount").html(`
-                        <option value="${cost}">$${cost} (${planType.charAt(0).toUpperCase() + planType.slice(1)})</option>
+                        <option value="${cost}">$${cost} (${planType === 'one_time' ? 'One-Time' : planType.charAt(0).toUpperCase() + planType.slice(1)})</option>
                     `);
                 } else {
                     $("#amount").html(`
@@ -398,23 +399,14 @@
                 }
             }
 
-            // Update recurrence day options and show/hide month field
+            // Update recurrence fields and plan cost based on plan type
             $("#plan_type").on("change", function() {
                 const planType = $(this).val();
                 if (planType === "yearly") {
                     $("#month_of_recurrence_group").show();
                     $("#month_of_recurrence").prop("required", true);
-                } else {
-                    $("#month_of_recurrence_group").hide();
-                    $("#month_of_recurrence").prop("required", false);
-                }
-                // Adjust day of recurrence for monthly plan
-                if (planType === "monthly") {
-                    $("#day_of_recurrence").html(`
-                        <option value="" disabled selected>Select a day</option>
-                        ${Array.from({length: 31}, (_, i) => i + 1).map(day => `<option value="${day}">${day}</option>`).join('')}
-                    `);
-                } else {
+                    $("#day_of_recurrence_group").show();
+                    $("#day_of_recurrence").prop("required", true);
                     $("#day_of_recurrence").html(`
                         <option value="" disabled selected>Select a day</option>
                         <option value="monday">Monday</option>
@@ -424,6 +416,38 @@
                         <option value="friday">Friday</option>
                         <option value="saturday">Saturday</option>
                         <option value="sunday">Sunday</option>
+                    `);
+                } else if (planType === "monthly") {
+                    $("#month_of_recurrence_group").hide();
+                    $("#month_of_recurrence").prop("required", false);
+                    $("#day_of_recurrence_group").show();
+                    $("#day_of_recurrence").prop("required", true);
+                    $("#day_of_recurrence").html(`
+                        <option value="" disabled selected>Select a day</option>
+                        ${Array.from({length: 31}, (_, i) => i + 1).map(day => `<option value="${day}">${day}</option>`).join('')}
+                    `);
+                } else if (planType === "weekly") {
+                    $("#month_of_recurrence_group").hide();
+                    $("#month_of_recurrence").prop("required", false);
+                    $("#day_of_recurrence_group").show();
+                    $("#day_of_recurrence").prop("required", true);
+                    $("#day_of_recurrence").html(`
+                        <option value="" disabled selected>Select a day</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                    `);
+                } else if (planType === "one_time") {
+                    $("#month_of_recurrence_group").hide();
+                    $("#month_of_recurrence").prop("required", false);
+                    $("#day_of_recurrence_group").hide();
+                    $("#day_of_recurrence").prop("required", false);
+                    $("#day_of_recurrence").html(`
+                        <option value="" disabled selected>Select a day</option>
                     `);
                 }
                 updatePlanCost();
