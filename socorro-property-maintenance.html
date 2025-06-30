@@ -344,12 +344,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Pricing based on property size and plan type
+            // Pricing based on property size and plan type (single service base prices)
             const pricing = {
                 small: { one_time: 100, weekly: 70, monthly: 90 },
-                medium: { one_time: 50, weekly: 50, monthly: 150 },
-                large: { one_time: 80, weekly: 80, monthly: 250 },
-                extra_large: { one_time: 120, weekly: 120, monthly: 400 }
+                medium: { one_time: 150, weekly: 105, monthly: 135 },
+                large: { one_time: 300, weekly: 210, monthly: 270 },
+                extra_large: { one_time: 500, weekly: 350, monthly: 450 }
+            };
+
+            // Multipliers for both services (derived from small property ratios)
+            const bothServicesMultipliers = {
+                one_time: 1.5, // $150 / $100
+                weekly: 1.43, // $100 / $70
+                monthly: 1.39 // $125 / $90
             };
 
             // Update plan cost options based on property size, plan type, and services
@@ -361,25 +368,11 @@
 
                 if (propertySize && planType) {
                     let cost = pricing[propertySize][planType];
-                    // Adjust cost for small property based on services selected
-                    if (propertySize === "small") {
-                        if (lawnCareChecked && propertyMaintenanceChecked) {
-                            if (planType === "one_time") {
-                                cost = 150;
-                            } else if (planType === "weekly") {
-                                cost = 100;
-                            } else if (planType === "monthly") {
-                                cost = 125;
-                            }
-                        } else if (lawnCareChecked || propertyMaintenanceChecked) {
-                            if (planType === "one_time") {
-                                cost = 100;
-                            } else if (planType === "weekly") {
-                                cost = 70;
-                            } else if (planType === "monthly") {
-                                cost = 90;
-                            }
-                        }
+                    // Adjust cost based on services selected
+                    if (lawnCareChecked && propertyMaintenanceChecked) {
+                        cost = Math.round(cost * bothServicesMultipliers[planType]);
+                    } else if (!(lawnCareChecked || propertyMaintenanceChecked)) {
+                        cost = 0; // No services selected, will trigger validation on submit
                     }
                     $("#amount").html(`
                         <option value="${cost}">$${cost} (${planType === 'one_time' ? 'One-Time' : planType.charAt(0).toUpperCase() + planType.slice(1)})</option>
