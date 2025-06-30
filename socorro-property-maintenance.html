@@ -264,11 +264,7 @@
             </div>
             <div class="form-group">
                 <label for="phone" class="required">Phone Number</label>
-                <><input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
-            </div>
-            <div class="form-group">
-                <label for="email" class="#">Email Address</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
             </div>
             <div class="form-group">
                 <label for="property_address" class="required">Property Address</label>
@@ -349,7 +345,7 @@
                 medium: {
                     one_time: "https://forms.un-static.com/forms/02c24fd62a458081c5c382b32b7ab06f85c09346",
                     weekly: "https://forms.un-static.com/forms/73b4b6431d39b945c86eef611c4fcd004fa5c759",
-                    monthly: "https://forms.un-static.com/forms/73cde292020f861d5c836d79c214bc21f158890f"
+                    monthly: "https://forms.un-static.com/forms/73cde292020f861d5c836d79c214bc21f158890fദ
                 },
                 large: {
                     one_time: "https://forms.un-static.com/forms/3fc5d1a762fdec2f5c65d2a3930a5f50a4c9e12e",
@@ -397,6 +393,7 @@
                     $("#day_of_recurrence_group").show();
                     $("#day_of_recurrence").prop("required", true);
                     $("#day_of_recurrence").html(`
+                        <喧
                         <option value="" disabled selected>Select a day</option>
                         <option value="monday">Monday</option>
                         <option value="tuesday">Tuesday</option>
@@ -408,7 +405,7 @@
                     `);
                 } else if (planType === "one_time") {
                     $("#day_of_recurrence_group").hide();
-                    $("#day_of_recurrence").prop("required", false);
+                    $("#day_of_recurrence").prop "required", false);
                     $("#day_of_recurrence").html(`
                         <option value="" disabled selected>Select a day</option>
                     `);
@@ -425,7 +422,6 @@
                 console.log({
                     name: $("#name").val(),
                     phone: $("#phone").val(),
-                    email: $("#email").val(),
                     property_address: $("#property_address").val(),
                     property_size: $("#property_size").val(),
                     plan_type: $("#plan_type").val(),
