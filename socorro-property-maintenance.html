@@ -296,12 +296,11 @@
                     <option value="one_time">One-Time</option>
                     <option value="weekly">Weekly</option>
                     <option value="monthly">Monthly</option>
-                    <option value="yearly">Yearly</option>
                 </select>
             </div>
             <div class="form-group" id="day_of_recurrence_group">
                 <label for="day_of_recurrence" class="required">Day of Recurrence</label>
-                <select id="day_of_recurrence" name="day_of_recurrence" class="form-control" required>
+                <select id="day_of_recurrence" name="daysony service="form-control" required>
                     <option value="" disabled selected>Select a day</option>
                     <option value="monday">Monday</option>
                     <option value="tuesday">Tuesday</option>
@@ -312,24 +311,6 @@
                     <option value="sunday">Sunday</option>
                 </select>
             </div>
-            <div class="form-group" id="month_of_recurrence_group" style="display: none;">
-                <label for="month_of_recurrence" class="required">Month of Recurrence (Yearly Plan)</label>
-                <select id="month_of_recurrence" name="month_of_recurrence" class="form-control">
-                    <option value="" disabled selected>Select a month</option>
-                    <option value="january">January</option>
-                    <option value="february">February</option>
-                    <option value="march">March</option>
-                    <option value="april">April</option>
-                    <option value="may">May</option>
-                    <option value="june">June</option>
-                    <option value="july">July</option>
-                    <option value="august">August</option>
-                    <option value="september">September</option>
-                    <option value="october">October</option>
-                    <option value="november">November</option>
-                    <option value="december">December</option>
-                </select>
-            </div>
             <div class="form-group">
                 <label class="required">Services Needed (Select at least one)</label>
                 <div class="checkbox-group">
@@ -338,27 +319,15 @@
                         <label for="lawn_care">Lawn Care</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="landscaping" name="services" value="landscaping">
-                        <label for="landscaping">Landscaping</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="repairs" name="services" value="repairs">
-                        <label for="repairs">Repairs</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="cleaning" name="services" value="cleaning">
-                        <label for="cleaning">Cleaning</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="snow_removal" name="services" value="snow_removal">
-                        <label for="snow_removal">Snow Removal</label>
+                        <input type="checkbox" id="property_maintenance" name="services" value="property_maintenance">
+                        <label for="property_maintenance">Property Maintenance</label>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="amount" class="required">Plan Cost (USD)</label>
                 <select id="amount" name="amount" class="form-control" required>
-                    <option value="" disabled selected>Select property size and plan type first</option>
+                    <option value="" disabled selected>Select property size, plan type, and services first</option>
                 </select>
             </div>
             <div class="form-group">
@@ -377,24 +346,35 @@
         $(document).ready(function() {
             // Pricing based on property size and plan type
             const pricing = {
-                small: { one_time: 30, weekly: 30, monthly: 100, yearly: 1000 },
-                medium: { one_time: 50, weekly: 50, monthly: 150, yearly: 1500 },
-                large: { one_time: 80, weekly: 80, monthly: 250, yearly: 2500 },
-                extra_large: { one_time: 120, weekly: 120, monthly: 400, yearly: 4000 }
+                small: { one_time: 100, weekly: 30, monthly: 100 },
+                medium: { one_time: 50, weekly: 50, monthly: 150 },
+                large: { one_time: 80, weekly: 80, monthly: 250 },
+                extra_large: { one_time: 120, weekly: 120, monthly: 400 }
             };
 
-            // Update plan cost options based on property size and plan type
+            // Update plan cost options based on property size, plan type, and services
             function updatePlanCost() {
                 const propertySize = $("#property_size").val();
                 const planType = $("#plan_type").val();
+                const lawnCareChecked = $("#lawn_care").is(":checked");
+                const propertyMaintenanceChecked = $("#property_maintenance").is(":checked");
+
                 if (propertySize && planType) {
-                    const cost = pricing[propertySize][planType];
+                    let cost = pricing[propertySize][planType];
+                    // Adjust cost for one-time small property based on services selected
+                    if (planType === "one_time" && propertySize === "small") {
+                        if (lawnCareChecked && propertyMaintenanceChecked) {
+                            cost = 150;
+                        } else if (lawnCareChecked || propertyMaintenanceChecked) {
+                            cost = 100;
+                        }
+                    }
                     $("#amount").html(`
                         <option value="${cost}">$${cost} (${planType === 'one_time' ? 'One-Time' : planType.charAt(0).toUpperCase() + planType.slice(1)})</option>
                     `);
                 } else {
                     $("#amount").html(`
-                        <option value="" disabled selected>Select property size and plan type first</option>
+                        <option value="" disabled selected>Select property size, plan type, and services first</option>
                     `);
                 }
             }
@@ -402,24 +382,7 @@
             // Update recurrence fields and plan cost based on plan type
             $("#plan_type").on("change", function() {
                 const planType = $(this).val();
-                if (planType === "yearly") {
-                    $("#month_of_recurrence_group").show();
-                    $("#month_of_recurrence").prop("required", true);
-                    $("#day_of_recurrence_group").show();
-                    $("#day_of_recurrence").prop("required", true);
-                    $("#day_of_recurrence").html(`
-                        <option value="" disabled selected>Select a day</option>
-                        <option value="monday">Monday</option>
-                        <option value="tuesday">Tuesday</option>
-                        <option value="wednesday">Wednesday</option>
-                        <option value="thursday">Thursday</option>
-                        <option value="friday">Friday</option>
-                        <option value="saturday">Saturday</option>
-                        <option value="sunday">Sunday</option>
-                    `);
-                } else if (planType === "monthly") {
-                    $("#month_of_recurrence_group").hide();
-                    $("#month_of_recurrence").prop("required", false);
+                if (planType === "monthly") {
                     $("#day_of_recurrence_group").show();
                     $("#day_of_recurrence").prop("required", true);
                     $("#day_of_recurrence").html(`
@@ -427,8 +390,6 @@
                         ${Array.from({length: 31}, (_, i) => i + 1).map(day => `<option value="${day}">${day}</option>`).join('')}
                     `);
                 } else if (planType === "weekly") {
-                    $("#month_of_recurrence_group").hide();
-                    $("#month_of_recurrence").prop("required", false);
                     $("#day_of_recurrence_group").show();
                     $("#day_of_recurrence").prop("required", true);
                     $("#day_of_recurrence").html(`
@@ -442,8 +403,6 @@
                         <option value="sunday">Sunday</option>
                     `);
                 } else if (planType === "one_time") {
-                    $("#month_of_recurrence_group").hide();
-                    $("#month_of_recurrence").prop("required", false);
                     $("#day_of_recurrence_group").hide();
                     $("#day_of_recurrence").prop("required", false);
                     $("#day_of_recurrence").html(`
@@ -453,8 +412,8 @@
                 updatePlanCost();
             });
 
-            // Update plan cost when property size changes
-            $("#property_size").on("change", updatePlanCost);
+            // Update plan cost when property size or services change
+            $("#property_size, #lawn_care, #property_maintenance").on("change", updatePlanCost);
 
             // Validate at least one service is selected
             $("#maintenance-form").on("submit", function(e) {
@@ -475,7 +434,6 @@
                     property_size: $("#property_size").val(),
                     plan_type: $("#plan_type").val(),
                     day_of_recurrence: $("#day_of_recurrence").val(),
-                    month_of_recurrence: $("#month_of_recurrence").val(),
                     services: $("input[name='services']:checked").map(function() { return this.value; }).get(),
                     amount: $("#amount").val(),
                     comments: $("#comments").val()
