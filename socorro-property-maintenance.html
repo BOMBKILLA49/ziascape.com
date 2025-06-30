@@ -251,17 +251,12 @@
             background-color: #e6b800;
             color: #000000;
         }
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
     </style>
 </head>
 <body>
     <div class="form-container">
         <h2 class="text-center mb-4">Socorro Property Maintenance Program</h2>
-        <p class="text-center mb-4">Trusted by Socorro’s tight-knit community, our property maintenance services deliver exceptional care for our small town’s homes and businesses.</p>
+        <p class="text-center mb-4">Trusted by Socorro’s tight-knit community, our lawn care services deliver exceptional care for our small town’s homes and businesses.</p>
         <form method="post" action="https://forms.un-static.com/forms/20498b1a2650cc2e25d22b39d309bac55c735de6" id="maintenance-form">
             <div class="form-group">
                 <label for="name" class="required">Name</label>
@@ -312,22 +307,14 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="required">Services Needed (Select at least one)</label>
-                <div class="checkbox-group">
-                    <div>
-                        <input type="checkbox" id="lawn_care" name="services" value="lawn_care">
-                        <label for="lawn_care">Lawn Care</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="property_maintenance" name="services" value="property_maintenance">
-                        <label for="property_maintenance">Property Maintenance</label>
-                    </div>
-                </div>
+                <label>Service</label>
+                <p>Lawn Care (included)</p>
+                <input type="hidden" name="services" value="lawn_care">
             </div>
             <div class="form-group">
                 <label for="amount" class="required">Plan Cost (USD)</label>
                 <select id="amount" name="amount" class="form-control" required>
-                    <option value="" disabled selected>Select property size, plan type, and services first</option>
+                    <option value="" disabled selected>Select property size and plan type first</option>
                 </select>
             </div>
             <div class="form-group">
@@ -344,7 +331,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Pricing based on property size and plan type (single service base prices)
+            // Pricing based on property size and plan type
             const pricing = {
                 small: { one_time: 100, weekly: 70, monthly: 90 },
                 medium: { one_time: 150, weekly: 105, monthly: 135 },
@@ -352,34 +339,19 @@
                 extra_large: { one_time: 500, weekly: 350, monthly: 450 }
             };
 
-            // Multipliers for both services (derived from small property ratios)
-            const bothServicesMultipliers = {
-                one_time: 1.5, // $150 / $100
-                weekly: 1.43, // $100 / $70
-                monthly: 1.39 // $125 / $90
-            };
-
-            // Update plan cost options based on property size, plan type, and services
+            // Update plan cost options based on property size and plan type
             function updatePlanCost() {
                 const propertySize = $("#property_size").val();
                 const planType = $("#plan_type").val();
-                const lawnCareChecked = $("#lawn_care").is(":checked");
-                const propertyMaintenanceChecked = $("#property_maintenance").is(":checked");
 
                 if (propertySize && planType) {
-                    let cost = pricing[propertySize][planType];
-                    // Adjust cost based on services selected
-                    if (lawnCareChecked && propertyMaintenanceChecked) {
-                        cost = Math.round(cost * bothServicesMultipliers[planType]);
-                    } else if (!(lawnCareChecked || propertyMaintenanceChecked)) {
-                        cost = 0; // No services selected, will trigger validation on submit
-                    }
+                    const cost = pricing[propertySize][planType];
                     $("#amount").html(`
                         <option value="${cost}">$${cost} (${planType === 'one_time' ? 'One-Time' : planType.charAt(0).toUpperCase() + planType.slice(1)})</option>
                     `);
                 } else {
                     $("#amount").html(`
-                        <option value="" disabled selected>Select property size, plan type, and services first</option>
+                        <option value="" disabled selected>Select property size and plan type first</option>
                     `);
                 }
             }
@@ -417,19 +389,11 @@
                 updatePlanCost();
             });
 
-            // Update plan cost when property size or services change
-            $("#property_size, #lawn_care, #property_maintenance").on("change", updatePlanCost);
+            // Update plan cost when property size changes
+            $("#property_size").on("change", updatePlanCost);
 
-            // Validate at least one service is selected
+            // Log submission for verification
             $("#maintenance-form").on("submit", function(e) {
-                const servicesChecked = $("input[name='services']:checked").length;
-                if (servicesChecked === 0) {
-                    e.preventDefault();
-                    alert("Please select at least one service.");
-                    return false;
-                }
-
-                // Log submission for verification
                 console.log("Submitting form to: " + this.action);
                 console.log({
                     name: $("#name").val(),
@@ -439,7 +403,7 @@
                     property_size: $("#property_size").val(),
                     plan_type: $("#plan_type").val(),
                     day_of_recurrence: $("#day_of_recurrence").val(),
-                    services: $("input[name='services']:checked").map(function() { return this.value; }).get(),
+                    services: ["lawn_care"],
                     amount: $("#amount").val(),
                     comments: $("#comments").val()
                 });
