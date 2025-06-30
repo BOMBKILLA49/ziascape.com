@@ -257,14 +257,14 @@
     <div class="form-container">
         <h2 class="text-center mb-4">Socorro Property Maintenance Program</h2>
         <p class="text-center mb-4">Trusted by Socorro’s tight-knit community, our lawn care services deliver exceptional care for our small town’s homes and businesses.</p>
-        <form method="post" action="https://forms.un-static.com/forms/20498b1a2650cc2e25d22b39d309bac55c735de6" id="maintenance-form">
+        <form method="post" action="" id="maintenance-form">
             <div class="form-group">
                 <label for="name" class="required">Name</label>
                 <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
             </div>
             <div class="form-group">
                 <label for="phone" class="required">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                <><input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
             </div>
             <div class="form-group">
                 <label for="email" class="#">Email Address</label>
@@ -339,24 +339,51 @@
                 extra_large: { one_time: 500, weekly: 350, monthly: 450 }
             };
 
-            // Update plan cost options based on property size and plan type
-            function updatePlanCost() {
+            // Payment URLs for each property size and plan type combination
+            const paymentUrls = {
+                small: {
+                    one_time: "https://forms.un-static.com/forms/bfef3efc02db16ee4c1a025b307237a86fe754b8",
+                    weekly: "https://forms.un-static.com/forms/cef07f313c9710be1406e7d41503a9e248322c8a",
+                    monthly: "https://forms.un-static.com/forms/9540182f184becebaf9360d715ead0ff36f7767e"
+                },
+                medium: {
+                    one_time: "https://forms.un-static.com/forms/02c24fd62a458081c5c382b32b7ab06f85c09346",
+                    weekly: "https://forms.un-static.com/forms/73b4b6431d39b945c86eef611c4fcd004fa5c759",
+                    monthly: "https://forms.un-static.com/forms/73cde292020f861d5c836d79c214bc21f158890f"
+                },
+                large: {
+                    one_time: "https://forms.un-static.com/forms/3fc5d1a762fdec2f5c65d2a3930a5f50a4c9e12e",
+                    weekly: "https://forms.un-static.com/forms/f149de1266d6a12766bf2981e3afaf6c200cf823",
+                    monthly: "https://forms.un-static.com/forms/7e09d493239b1eabd3ab240ce7a9f3cb9a790988"
+                },
+                extra_large: {
+                    one_time: "https://forms.un-static.com/forms/f91b06c2f2be5b43ed0ff4f04dada373ebbde900",
+                    weekly: "https://forms.un-static.com/forms/451e782121a65f1c0233b0b3a41a95e793e4bd3a",
+                    monthly: "https://forms.un-static.com/forms/c0d4abc5097108978ea1ada40276c7031ea5a4f2"
+                }
+            };
+
+            // Update plan cost and form action based on property size and plan type
+            function updatePlanCostAndAction() {
                 const propertySize = $("#property_size").val();
                 const planType = $("#plan_type").val();
 
                 if (propertySize && planType) {
                     const cost = pricing[propertySize][planType];
+                    const actionUrl = paymentUrls[propertySize][planType];
                     $("#amount").html(`
                         <option value="${cost}">$${cost} (${planType === 'one_time' ? 'One-Time' : planType.charAt(0).toUpperCase() + planType.slice(1)})</option>
                     `);
+                    $("#maintenance-form").attr("action", actionUrl);
                 } else {
                     $("#amount").html(`
                         <option value="" disabled selected>Select property size and plan type first</option>
                     `);
+                    $("#maintenance-form").attr("action", "");
                 }
             }
 
-            // Update recurrence fields and plan cost based on plan type
+            // Update recurrence fields and plan cost/action based on plan type
             $("#plan_type").on("change", function() {
                 const planType = $(this).val();
                 if (planType === "monthly") {
@@ -386,11 +413,11 @@
                         <option value="" disabled selected>Select a day</option>
                     `);
                 }
-                updatePlanCost();
+                updatePlanCostAndAction();
             });
 
-            // Update plan cost when property size changes
-            $("#property_size").on("change", updatePlanCost);
+            // Update plan cost and action when property size changes
+            $("#property_size").on("change", updatePlanCostAndAction);
 
             // Log submission for verification
             $("#maintenance-form").on("submit", function(e) {
