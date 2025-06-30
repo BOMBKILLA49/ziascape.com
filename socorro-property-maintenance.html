@@ -300,7 +300,7 @@
             </div>
             <div class="form-group" id="day_of_recurrence_group">
                 <label for="day_of_recurrence" class="required">Day of Recurrence</label>
-                <select id="day_of_recurrence" name="daysony service="form-control" required>
+                <select id="day_of_recurrence" name="day_of_recurrence" class="form-control" required>
                     <option value="" disabled selected>Select a day</option>
                     <option value="monday">Monday</option>
                     <option value="tuesday">Tuesday</option>
@@ -346,7 +346,7 @@
         $(document).ready(function() {
             // Pricing based on property size and plan type
             const pricing = {
-                small: { one_time: 100, weekly: 30, monthly: 100 },
+                small: { one_time: 100, weekly: 70, monthly: 90 },
                 medium: { one_time: 50, weekly: 50, monthly: 150 },
                 large: { one_time: 80, weekly: 80, monthly: 250 },
                 extra_large: { one_time: 120, weekly: 120, monthly: 400 }
@@ -361,12 +361,24 @@
 
                 if (propertySize && planType) {
                     let cost = pricing[propertySize][planType];
-                    // Adjust cost for one-time small property based on services selected
-                    if (planType === "one_time" && propertySize === "small") {
+                    // Adjust cost for small property based on services selected
+                    if (propertySize === "small") {
                         if (lawnCareChecked && propertyMaintenanceChecked) {
-                            cost = 150;
+                            if (planType === "one_time") {
+                                cost = 150;
+                            } else if (planType === "weekly") {
+                                cost = 100;
+                            } else if (planType === "monthly") {
+                                cost = 125;
+                            }
                         } else if (lawnCareChecked || propertyMaintenanceChecked) {
-                            cost = 100;
+                            if (planType === "one_time") {
+                                cost = 100;
+                            } else if (planType === "weekly") {
+                                cost = 70;
+                            } else if (planType === "monthly") {
+                                cost = 90;
+                            }
                         }
                     }
                     $("#amount").html(`
