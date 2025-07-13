@@ -140,7 +140,7 @@ header{ transition: all 0.5s ease 0s; position: relative; z-index: 99999; }
 	.header-style2 .navbar-nav li a { color: #001c41; }
 	.header-style2 .navbar-nav > li > a { color: #66FF00; }
 	.header-style2 .navbar-nav li > ul { background: #fff; }
-	.header-style2 .navbar ul ul li.active > a { color: #20252d; }
+	.header-style2 .navbar ul ul li.active > a { color: #FFA500; }
 	.header-style2 .navbar-nav li.has-sub a:hover{ color: #20252d; }
 	.header-style2 .navbar-nav li.current > a{ color: #229f72; }
 	.header-style2 .navbar .sub-title { color: #001c41; font-weight: 800; }
