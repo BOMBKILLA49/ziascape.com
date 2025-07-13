@@ -42,443 +42,81 @@
     ================================================== -->
     <div id="preloader"></div>
 
-    <!-- MAIN WRAPPER
+    <!-- COMING SOON
     ================================================== -->
-    <div class="main-wrapper">
-
-        <!-- HEADER
-        ================================================== -->
-        <header class="header-style2">
-
-            <div id="top-bar" class="bg-secondary">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-9 col-xs-12">
-                            <div class="top-bar-info">
-                                <ul class="ps-0">
-                                    <li><i class="ti-mobile"></i>(575) 418 0601</li>
-                                    <li class="d-none d-sm-inline-block"><i class="ti-email"></i>info@ziascape.com</li>
-                                </ul>
+    <section class="py-8 py-sm-0 px-0 bg-img cover-background left-overlay-dark" data-overlay-dark="9" data-background="img/bg/bg-04.jpg">
+        <div class="container d-flex flex-column position-relative z-index-9">
+            <div class="row align-items-center min-vh-100 justify-content-start">
+                <div class="col-sm-10 col-xl-8">
+                    <div>
+                        <div class="mb-1-9 mb-lg-2-9">
+                            <div class="mb-3">
+                                <span class="text-secondary text-uppercase small letter-spacing-4 d-block mb-2 font-weight-700">Stay tuned</span>
+                                <h2 class="mb-0 display-4 font-weight-800 text-white">We are coming soon!</h2>
                             </div>
+                            <p class="lead mb-0 text-secondary">Stay tuned, we are launching very soon...</p>
                         </div>
-                        <div class="col-xs-12 col-md-3 d-none d-md-block">
-                            <ul class="top-social-icon ps-0">
-                                <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <ul class="countdown mb-2-3 mb-lg-6 p-0">
+                            <!-- days -->
+                            <li class="mb-3 mb-md-0"><span class="days">00</span>
+                                <p class="timeRefDays">days</p>
+                            </li>
+                            <!-- end days -->
+                            <!-- hours -->
+                            <li class="mb-3 mb-md-0"><span class="hours">00</span>
+                                <p class="timeRefHours">hours</p>
+                            </li>
+                            <!-- end hours -->
+                            <!-- minutes -->
+                            <li><span class="minutes">00</span>
+                                <p class="timeRefMinutes">minutes</p>
+                            </li>
+                            <!-- end minutes -->
+                            <!-- seconds -->
+                            <li><span class="seconds">00</span>
+                                <p class="timeRefSeconds">seconds</p>
+                            </li>
+                            <!-- end seconds -->
+                        </ul>
+                        <form class="quform newsletter-form w-95 w-sm-90 w-md-60 mb-1-9" action="quform/newsletter-two.php" method="post" enctype="multipart/form-data" onclick="">
+                            <div class="quform-elements">
+                                <div class="row">
 
-            <div class="navbar-default">
+                                    <!-- Begin Text input element -->
+                                    <div class="col-md-12">
+                                        <div class="quform-element mb-0">
+                                            <div class="quform-input">
+                                                <input class="form-control" id="email_address" type="text" name="email_address" placeholder="Subscribe with us">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Text input element -->
 
-                <!-- start top search -->
-                <div class="top-search bg-primary">
-                    <div class="container">
-                        <form class="search-form" action="search.html" method="GET" accept-charset="utf-8">
-                            <div class="input-group">
-                                <span class="input-group-addon cursor-pointer">
-                                    <button class="search-form_submit fas fa-search text-white" type="submit"></button>
-                                </span>
-                                <input type="text" class="search-form_input form-control" name="s" autocomplete="off" placeholder="Type & hit enter...">
-                                <span class="input-group-addon close-search mt-1"><i class="fas fa-times"></i></span>
+                                    <!-- Begin Submit button -->
+                                    <div class="col-md-12">
+                                        <div class="quform-submit-inner position-relative">
+                                            <button class="btn btn-white text-white rounded-0 m-0" type="submit"><i class="fas fa-paper-plane"></i></button>
+                                        </div>
+                                        <div class="quform-loading-wrap d-none"><span class="quform-loading"></span></div>
+                                    </div>
+                                    <!-- End Submit button -->
+                                </div>
+
                             </div>
                         </form>
-                    </div>
-                </div>
-                <!-- end top search -->
-
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-lg-12">
-                            <div class="menu_area alt-font">
-                                <nav class="navbar navbar-expand-lg navbar-light p-0">
-                                    <div class="navbar-header navbar-header-custom">
-                                        <!-- start logo -->
-                                        <a href="index.html" class="navbar-brand logodefault"><img id="logo" src="img/logos/logo.png" alt="logo" /></a>
-                                        <!-- end logo -->
-                                    </div>
-
-                                    <div class="navbar-toggler bg-primary"></div>
-
-                                    <!-- start menu area -->
-                                    <ul class="navbar-nav ms-auto" id="nav" style="display: none;">
-                                        <li>
-                                            <a href="#!">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="#!">Services</a>
-                                            <ul>
-                                                <li><a href="new-mexico-concrete-brick.html">Concrete & Brick</a></li>
-                                                <li><a href="commercial-local.html">Dirtwork Services</a></li>
-                                                <li><a href="new-mexico-landscaping.html">Custom Landscaping</a></li>
-                                                <li><a href="new-mexico-turf.html">Turf Services</a></li>
-                                                <li><a href="new-mexico-fencing.html">Fence Services</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#!">Service Areas</a>
-                                            <ul>
-                                                <li><a href="albuquerque-concrete-and-brick.html">Albuquerque</a></li>
-                                                <li><a href="socorro-concrete-and-brick.html">Socorro</a></li>
-                                                <li><a href="belen-concrete-and-brick.html">Belen</a></li>
-                                                <li><a href="t-or-c-concrete-and-brick.html">Truth or Consequences</a></li>
-                                                <li><a href="magdalena-concrete-and-brick.html">Magdalena</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="about.html">About</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact Us</a>
-                                        </li>
-                                    </ul>
-                                    <!-- end menu area -->
-
-                                    <!-- start attribute navigation -->
-                                    <div class="attr-nav align-items-xl-center ms-xl-auto main-font">
-                                        <ul>
-                                            <li class="search"><a href="#!"><i class="fas fa-search"></i></a></li>
-                                            <li class="d-none d-xl-inline-block"><a href="contact.html" class="butn secondary md"><span class="text-white">Free Quote</span></a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- end attribute navigation -->
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </header>
-
-		<!-- PAGE TITLE
-        ================================================== -->
-		<section class="page-title-section bg-img cover-background top-position1 left-overlay-dark" data-overlay-dark="9" data-background="img/banner/page-title-01.jpg">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1>About Us</h1>
-						<ul class="list-unstyled">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="#!">About Us</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ABOUT US
-        ================================================== -->
-		<section>
-			<div class="container">
-				<div class="row align-items-center mt-n5">
-					<div class="col-lg-6 mt-5">
-						<div class="pe-1-9 pe-xl-6 pe-xxl-15">
-							<div class="heading-style01 mb-1-9 mb-xl-5">
-								<span class="small-text">Who We Are</span>
-								<h2 class="display-5">We keep your goods free from even a hint of harm!</h2>
-							</div>
-                            <p class="mb-5">Providers of personal safety, comfort, and protection products for the outdoor enthusiast It has been our experience that Classic Transportation is in an elite</p>
-							<div>
-								<a href="services.html" class="butn">More Services</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 mt-5">
-						<div class="text-end position-relative">
-							<img src="img/content/about-img-06.jpg" alt="...">
-							<div class="position-absolute bottom-n15 left-n5 d-none d-md-block">
-								<img src="img/content/about-img-07.jpg" alt="...">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- WHY CHOOSE US
-        ================================================== -->
-		<section class="why-choose-style01 pt-1-6 pt-md-7">
-			<div class="container">
-				<div class="heading-style01 mb-1-9 mb-xl-5 text-center">
-					<span class="small-text">Our Mission</span>
-					<h2 class="display-5">Why Choose For Us</h2>
-				</div>
-				<div class="row mt-n4">
-					<div class="col-lg-6 col-xl-4 mt-4">
-						<div class="why-choose-area text-center h-100 border border-color-light-black">
-							<img src="img/icons/why-choose-about-01.png" alt="..." class="mb-1-9 mb-xl-5">
-							<h3 class="mb-4 h4">Fast Trasnsportation Service</h3>
-							<p class="mb-0">Upgrade Intelligent Measurements for Dependable Administrations. Proactively Release Completely Explored.</p>
-						</div>
-					</div>
-					<div class="col-lg-6 col-xl-4 mt-4">
-						<div class="why-choose-area text-center h-100 border border-color-light-black">
-							<img src="img/icons/why-choose-about-02.png" alt="..." class="mb-1-9 mb-xl-5">
-							<h3 class="mb-4 h4">24/7 Online Support</h3>
-							<p class="mb-0">Upgrade Intelligent Measurements for Dependable Administrations. Proactively Release Completely Explored.</p>
-						</div>
-					</div>
-					<div class="col-lg-6 col-xl-4 mt-4">
-						<div class="why-choose-area text-center h-100 border border-color-light-black">
-							<img src="img/icons/why-choose-about-03.png" alt="..." class="mb-1-9 mb-xl-5">
-							<h3 class="mb-4 h4">Safety & Reliability</h3>
-							<p class="mb-0">Upgrade Intelligent Measurements for Dependable Administrations. Proactively Release Completely Explored.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- VIDEO
-        ================================================== -->
-        <section class="bg-img cover-background parallax-video dark-overlay" data-overlay-dark="55" data-background="img/bg/about-bg-01.jpg">
-            <div class="story-video z-index-3 position-relative text-center">
-                <a class="video video_btn bg-secondary" href="https://www.youtube.com/watch?v=QgC-E41w084">
-                    <i class="fa fa-play"></i>
-                </a>
-            </div>
-        </section>
-
-        <!-- CONTACT
-        ================================================== -->
-        <section class="pt-0 mt-n10 bg-transparent">
-            <div class="row">
-                <div class="col-lg-1 col-xl-4"></div>
-                <div class="col-lg-11 col-xl-8">
-                    <div class="bg-img px-1-9 px-sm-6 px-lg-9 py-6 py-sm-8 z-index-3 cover-background border-radius-start-10 bg-primary" data-background="img/bg/bg-02.png">
-                        <div class="row align-items-center">
-                            <div class="col-lg-7 col-xxl-6 mb-4 mb-lg-0">
-                                <h2 class="h1 text-white mb-0">Immediately Improve Your Transportation Logistics</h2>
-                            </div>
-                            <div class="col-lg-5 col-xxl-5 offset-xxl-1">
-                                <a href="contact.html" class="butn secondary white-hover">Quick Contact</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-		<!-- TEAM
-        ================================================== -->
-		<section class="pt-0">
-			<div class="container">
-				<div class="heading-style01 mb-1-9 mb-xl-5 text-center">
-					<span class="small-text">Our Team</span>
-					<h2 class="display-5">Meet Our Experts</h2>
-				</div>
-				<div class="row mt-n5">
-					<div class="col-md-6 col-xl-3 mt-5">
-						<div class="card card-style04 border-0 rounded-0 text-center">
-							<div class="position-relative">
-								<img src="img/team/team-01.jpg" alt="..." class="mb-4">
-								<div class="team-icon">
-									<ul class="list-unstyled d-flex mb-0 justify-content-center">
-										<li><a href="#"><i class="ti-facebook"></i></a></li>
-										<li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-										<li><a href="#"><i class="ti-linkedin"></i></a></li>
-										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="card-body p-0">
-								<h4 class="h5 mb-0">James Mansour</h4>
-								<span class="display-30">Air Cargo Supervisor</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-xl-3 mt-5">
-						<div class="card card-style04 border-0 rounded-0 text-center">
-							<div class="position-relative">
-								<img src="img/team/team-02.jpg" alt="..." class="mb-4">
-								<div class="team-icon">
-									<ul class="list-unstyled d-flex mb-0 justify-content-center">
-										<li><a href="#"><i class="ti-facebook"></i></a></li>
-										<li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-										<li><a href="#"><i class="ti-linkedin"></i></a></li>
-										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="card-body p-0">
-								<h4 class="h5 mb-0">Tyler Pasley</h4>
-								<span class="display-30">Ship Steward</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-xl-3 mt-5">
-						<div class="card card-style04 border-0 rounded-0 text-center">
-							<div class="position-relative">
-								<img src="img/team/team-03.jpg" alt="..." class="mb-4">
-								<div class="team-icon">
-									<ul class="list-unstyled d-flex mb-0 justify-content-center">
-										<li><a href="#"><i class="ti-facebook"></i></a></li>
-										<li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-										<li><a href="#"><i class="ti-linkedin"></i></a></li>
-										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="card-body p-0">
-								<h4 class="h5 mb-0">Vincent C. King</h4>
-								<span class="display-30">Freight Engineer</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-xl-3 mt-5">
-						<div class="card card-style04 border-0 rounded-0 text-center">
-							<div class="position-relative">
-								<img src="img/team/team-04.jpg" alt="..." class="mb-4">
-								<div class="team-icon">
-									<ul class="list-unstyled d-flex mb-0 justify-content-center">
-										<li><a href="#"><i class="ti-facebook"></i></a></li>
-										<li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-										<li><a href="#"><i class="ti-linkedin"></i></a></li>
-										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="card-body p-0">
-								<h4 class="h5 mb-0">Regina L. Stiner</h4>
-								<span class="display-30">Forklift Operator</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- TESTIMONIAL 
-        ================================================== -->
-        <section class="tesimonial-section-01 p-0">
-            <div class="container-fluid p-0">
-                <div class="row g-0 align-items-center bg-primary">
-                    <div class="col-lg-6 order-2 order-lg-1">
-                        <div class="px-2-9 py-lg-0 py-5 px-md-8">
-                            <div class="heading-style01 mb-1-9 mb-xl-5">
-                                <span class="small-text">Testimonials</span>
-                                <h2 class="display-5 text-white">What Our Customer Say</h2>
-                            </div>
-                            <div class="testimonial-carousel owl-carousel owl-theme">
-                                <div>
-                                    <img src="img/icons/icon-08.png" alt="..." class="mb-4">
-                                    <p class="mb-5 display-27 text-white">Packares and Mover Strategies Worldwide client care is the absolute best we have at any point had with sea forwarders we like to send however much as could be expected with you Packares and Mover Strategies Worldwide client care is the absolute best.</p>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="img/avatars/avatar-01.jpg" alt="..." class="rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h4 class="mb-1 h5 text-white">Hagos Michael</h4>
-                                            <p class="mb-0 text-secondary">Moving Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img src="img/icons/icon-08.png" alt="..." class="mb-4">
-                                    <p class="mb-5 display-27 text-white">On the other To hand, I unequivocally prescribe packares and movers to everybody keen on maintaining a fruitful web-based business we revile the other To hand, we upbraid with We honorable igna tion and abhorrence men the Loream whotrouble that are bound.</p>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="img/avatars/avatar-02.jpg" alt="..." class="rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h4 class="mb-1 h5 text-white">Mariette Lanoie</h4>
-                                            <p class="mb-0 text-secondary">Cargo Head</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img src="img/icons/icon-08.png" alt="..." class="mb-4">
-                                    <p class="mb-5 display-27 text-white">Operations Worldwide client support is the absolute best we have at any point had with sea we like to transport however much as could reasonably be expected with all of you. It's undeniably true that a peruser will be diverted by the discernible substance.</p>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="img/avatars/avatar-03.jpg" alt="..." class="rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h4 class="mb-1 h5 text-white">Jozeph Haase</h4>
-                                            <p class="mb-0 text-secondary">Shipping Incharge</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 order-1 order-lg-2">
-                        <div class="cover-background bg-img min-height-700" data-background="img/bg/bg-03.jpg"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-		<!-- FOOTER
-        ================================================== -->
-        <footer class="pt-1-9 pt-sm-6 bg-dark">
-            <div class="container">
-                <div class="row border-bottom border-color-light-white pb-4 mb-1-9 mb-sm-6 align-items-center">
-                    <div class="col-md-3">
-                        <div class="text-start mb-4 mb-md-0">
-                            <div class="footer-logo">
-                                <a href="index.html"><img src="img/logos/logo-footer.png" alt="..."></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="d-flex justify-content-start justify-content-md-end">
-                            <ul class="list-unstyled list-style02 mb-0 text-uppercase">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="portfolio.html">Projects</a></li>
-                                <li><a href="blog-grid.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row border-bottom border-color-light-white pb-1-9 pb-sm-6 mb-1-9 mt-n1-9">
-                    <div class="col-md-4 mt-1-9">
-                        <h3 class="text-secondary text-uppercase mb-3 mb-md-4 h5 letter-spacing-1">Contact</h3>
-                        <ul class="list-unstyled display-md-29 display-xl-28">
-                            <li><a href="mailto:info@yourdomain.com" class="text-white text-secondary-hover">info@example.com</a></li>
-                            <li><a href="mailto:info@yourdomain.com" class="text-white text-secondary-hover">info@domain.com</a></li>
+                        <h2 class="mb-3 h4 font-weight-500 text-white">Subscribe to our newsletter</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-inline-block me-3"><a href="#!" class="text-secondary"><i class="ti-facebook"></i></a></li>
+                            <li class="d-inline-block me-3"><a href="#!" class="text-secondary"><i class="ti-twitter-alt"></i></a></li>
+                            <li class="d-inline-block me-3"><a href="#!" class="text-secondary"><i class="ti-instagram"></i></a></li>
+                            <li class="d-inline-block me-3"><a href="#!" class="text-secondary"><i class="ti-linkedin"></i></a></li>
+                            <li class="d-inline-block"><a href="#!" class="text-secondary"><i class="ti-dribbble"></i></a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 mt-1-9 text-md-center">
-                        <h3 class="text-secondary text-uppercase mb-3 mb-md-4 h5 letter-spacing-1">Support</h3>
-                        <ul class="list-unstyled display-md-29 display-xl-28">
-                            <li><a href="tel:+44123456789" class="text-white text-secondary-hover">(+44) 123 456 789</a></li>
-                            <li><a href="tel:+44152567987" class="text-white text-secondary-hover">(+44) 152-567-987</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 mt-1-9 text-md-end">
-                        <h3 class="text-secondary text-uppercase mb-3 mb-md-4 h5 letter-spacing-1">Address</h3>
-                        <address class="mb-0 display-md-29 display-xl-28 text-white">— New York <br>18 N 3rd E Street Downey,<br>Lechase Park, United States.</address>
-                    </div>
-                </div>
-                <div class="row align-items-center pb-4">
-                    <div class="col-md-7 order-2 order-md-1">
-                        <div class="text-center text-md-start mt-1-9 mt-md-0">
-                            <p class="d-inline-block text-white mb-0">&copy; <span class="current-year"></span> Fixity Powered by <a href="#!" class="text-secondary text-white-hover">Website Design Templates</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-5 order-1 order-md-2">
-                        <div class="d-flex justify-content-center justify-content-md-end">
-                            <ul class="social-icon-style01 list-unstyled mb-0">
-                                <li><a href="#!"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
-                                <li><a href="#!"><i class="ti-linkedin"></i></a></li>
-                                <li><a href="#!"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </footer>
-
-    </div>
+        </div>
+    </section>
 
     <!-- SCROLL TO TOP
     ================================================== -->
