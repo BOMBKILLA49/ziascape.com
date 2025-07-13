@@ -138,7 +138,7 @@ header{ transition: all 0.5s ease 0s; position: relative; z-index: 99999; }
 	====================================== */
 	.header-style2 .navbar-default { box-shadow: none; }
 	.header-style2 .navbar-nav li a { color: #001c41; }
-	.header-style2 .navbar-nav > li > a { color: #FFFFFF; }
+	.header-style2 .navbar-nav > li > a { color: #66FF00; }
 	.header-style2 .navbar-nav li > ul { background: #fff; }
 	.header-style2 .navbar ul ul li.active > a { color: #20252d; }
 	.header-style2 .navbar-nav li.has-sub a:hover{ color: #20252d; }
@@ -149,7 +149,7 @@ header{ transition: all 0.5s ease 0s; position: relative; z-index: 99999; }
 	.header-style2 .navbar > ul > li.has-sub > a:after{  border-color: transparent #000 #000 transparent; }
 	.header-style2 .navbar > ul > li.current > a:after{ border-color: transparent #229f72 #229f72 transparent; }
 
-	.header-style2.scrollHeader .navbar-nav > li > a { color: #FFFFFF; }
+	.header-style2.scrollHeader .navbar-nav > li > a { color: #20252d; }
 	.header-style2.scrollHeader .navbar-nav > li.has-sub > a:hover { color: #000; }
 	.header-style2.scrollHeader .navbar > ul > li.has-sub > a:after { border-color: transparent #20252d #20252d transparent; }
 	.header-style2.scrollHeader .navbar-nav li.current > a{ color: #229f72; }
