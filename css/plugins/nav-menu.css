@@ -36,7 +36,7 @@ header{ transition: all 0.5s ease 0s; position: relative; z-index: 99999; }
 .navbar-nav ul{ position: absolute; left: -9999px; }
 .navbar ul ul li{ -webkit-transition: all .25s ease; -ms-transition: all .25s ease; transition: all .25s ease; }
 .navbar ul ul li:last-child{ margin-bottom: 0; }
-.navbar ul ul li.active > a{ /*color: #fff;*/ }
+.navbar ul ul li.active > a{ /*color: #20252d;*/ }
 .navbar-nav li > ul{ padding: 15px 0; margin: 0 0 0 10px; background: #282b2d; min-width: 225px; -webkit-box-shadow: 9px 11px 29px rgba(125, 138, 152, 0.15); -ms-box-shadow: 9px 11px 29px rgba(125, 138, 152, 0.15); -moz-box-shadow: 9px 11px 29px rgba(125, 138, 152, 0.15); box-shadow: 9px 11px 29px rgba(125, 138, 152, 0.15); }
 .navbar-nav li:hover > ul{ left: auto; }
 
