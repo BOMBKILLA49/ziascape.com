@@ -211,7 +211,269 @@
                     </div>
                     <div class="col-lg-8 mt-5 order-1 order-lg-2">
                         <div>
-                            <img src="img/services/socorro-landscaping-01.jpg" alt="..." class="mb-1-9">
+                                                        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belen Landscaping Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            box-sizing: border-box;
+        }
+        .form-control:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .required::after {
+            content: " *";
+            color: red;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .pp-HN6B2Z3A5W4FL {
+            text-align: center;
+            border: none;
+            border-radius: 1.5rem;
+            min-width: 11.625rem;
+            padding: 0 2rem;
+            height: 2.625rem;
+            font-weight: bold;
+            background-color: #FFD140;
+            color: #000000;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .pp-HN6B2Z3A5W4FL:hover {
+            background-color: #e6b800;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="text-center mb-4">Belen Landscaping</h1>
+        <p class="text-center mb-4">Fill out this form to subscribe to our landscaping/lawncare services.</p>
+        <form method="post" action="" id="maintenance-form">
+            <div class="form-group">
+                <label for="name" class="required">Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="required">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="property_address" class="required">Property Address</label>
+                <input type="text" id="property_address" name="property_address" class="ස
+                class="form-control" placeholder="Enter property address" required>
+            </div>
+            <div class="form-group">
+                <label for="property_size" class="required">Property Size</label>
+                <select id="property_size" name="property_size" class="form-control" required>
+                    <option value="" disabled selected>Select property size</option>
+                    <option value="small">Small (< 0.25 acres / ~10,890 sq ft)</option>
+                    <option value="medium">Medium (0.25–0.5 acres / ~10,890–21,780 sq ft)</option>
+                    <option value="large">Large (0.5–1 acre / ~21,780–43,560 sq ft)</option>
+                    <option value="extra_large">Extra Large (> 1 acre / ~43,560+ sq ft)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="plan_type" class="required">Plan Type</label>
+                <select id="plan_type" name="plan_type" class="form-control" required>
+                    <option value="" disabled selected>Select a plan</option>
+                    <option value="one_time">One-Time</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+            </div>
+            <div class="form-group" id="day_of_recurrence_group">
+                <label for="day_of_recurrence" class="required">Day of Recurrence</label>
+                <select id="day_of_recurrence" name="day_of_recurrence" class="form-control" required>
+                    <option value="" disabled selected>Select a day</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Services</label>
+                <p>Lawn Care (included)</p>
+		<p>Weed Control (included)</p>
+		<p>Leaf Control (included)</p>
+		<p>Debris Control (included)</p>
+                <input type="hidden" name="services" value="lawn_care">
+            </div>
+            <div class="form-group">
+                <label for="amount" class="required">Plan Cost (USD)</label>
+                <select id="amount" name="amount" class="form-control" required>
+                    <option value="" disabled selected>Select property size and plan type first</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Additional Comments or Special Instructions</label>
+                <textarea id="comments" name="comments" class="form-control" placeholder="Enter any special instructions or comments" rows="4"></textarea>
+            </div>
+            <div class="button-group mt-4">
+                <button type="submit" class="pp-HN6B2Z3A5W4FL">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Pricing based on property size and plan type
+            const pricing = {
+                small: { one_time: 100, weekly: 70, monthly: 90 },
+                medium: { one_time: 150, weekly: 105, monthly: 135 },
+                large: { one_time: 300, weekly: 210, monthly: 270 },
+                extra_large: { one_time: 500, weekly: 350, monthly: 450 }
+            };
+
+            // Payment URLs for each property size and plan type combination
+            const paymentUrls = {
+                small: {
+                    one_time: "https://forms.un-static.com/forms/bfef3efc02db16ee4c1a025b307237a86fe754b8",
+                    weekly: "https://forms.un-static.com/forms/cef07f313c9710be1406e7d41503a9e248322c8a",
+                    monthly: "https://forms.un-static.com/forms/9540182f184becebaf9360d715ead0ff36f7767e"
+                },
+                medium: {
+                    one_time: "https://forms.un-static.com/forms/02c24fd62a458081c5c382b32b7ab06f85c09346",
+                    weekly: "https://forms.un-static.com/forms/73b4b6431d39b945c86eef611c4fcd004fa5c759",
+                    monthly: "https://forms.un-static.com/forms/73cde292020f861d5c836d79c214bc21f158890f"
+                },
+                large: {
+                    one_time: "https://forms.un-static.com/forms/3fc5d1a762fdec2f5c65d2a3930a5f50a4c9e12e",
+                    weekly: "https://forms.un-static.com/forms/f149de1266d6a12766bf2981e3afaf6c200cf823",
+                    monthly: "https://forms.un-static.com/forms/7e09d493239b1eabd3ab240ce7a9f3cb9a790988"
+                },
+                extra_large: {
+                    one_time: "https://forms.un-static.com/forms/f91b06c2f2be5b43ed0ff4f04dada373ebbde900",
+                    weekly: "https://forms.un-static.com/forms/451e782121a65f1c0233b0b3a41a95e793e4bd3a",
+                    monthly: "https://forms.un-static.com/forms/c0d4abc5097108978ea1ada40276c7031ea5a4f2"
+                }
+            };
+
+            // Update plan cost and form action based on property size and plan type
+            function updatePlanCostAndAction() {
+                const propertySize = $("#property_size").val();
+                const planType = $("#plan_type").val();
+
+                if (propertySize && planType) {
+                    const cost = pricing[propertySize][planType];
+                    const actionUrl = paymentUrls[propertySize][planType];
+                    $("#amount").html(`
+                        <option value="${cost}">$${cost} (${planType === 'one_time' ? 'One-Time' : planType.charAt(0).toUpperCase() + planType.slice(1)})</option>
+                    `);
+                    $("#maintenance-form").attr("action", actionUrl);
+                } else {
+                    $("#amount").html(`
+                        <option value="" disabled selected>Select property size and plan type first</option>
+                    `);
+                    $("#maintenance-form").attr("action", "");
+                }
+            }
+
+            // Update recurrence fields and plan cost/action based on plan type
+            $("#plan_type").on("change", function() {
+                const planType = $(this).val();
+                if (planType === "monthly") {
+                    $("#day_of_recurrence_group").show();
+                    $("#day_of_recurrence").prop("required", true);
+                    $("#day_of_recurrence").html(`
+                        <option value="" disabled selected>Select a day</option>
+                        ${Array.from({length: 31}, (_, i) => i + 1).map(day => `<option value="${day}">${day}</option>`).join('')}
+                    `);
+                } else if (planType === "weekly") {
+                    $("#day_of_recurrence_group").show();
+                    $("#day_of_recurrence").prop("required", true);
+                    $("#day_of_recurrence").html(`
+                        <option value="" disabled selected>Select a day</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                    `);
+                } else if (planType === "one_time") {
+                    $("#day_of_recurrence_group").hide();
+                    $("#day_of_recurrence").prop("required", false);
+                    $("#day_of_recurrence").html(`
+                        <option value="" disabled selected>Select a day</option>
+                    `);
+                }
+                updatePlanCostAndAction();
+            });
+
+            // Update plan cost and action when property size changes
+            $("#property_size").on("change", updatePlanCostAndAction);
+
+            // Log submission for verification
+            $("#maintenance-form").on("submit", function(e) {
+                console.log("Submitting form to: " + this.action);
+                console.log({
+                    name: $("#name").val(),
+                    phone: $("#phone").val(),
+                    property_address: $("#property_address").val(),
+                    property_size: $("#property_size").val(),
+                    plan_type: $("#plan_type").val(),
+                    day_of_recurrence: $("#day_of_recurrence").val(),
+                    services: ["lawn_care"],
+                    amount: $("#amount").val(),
+                    comments: $("#comments").val()
+                });
+            });
+        });
+    </script>
+</body>
+</html>
                             <h2 class="mb-4">Belen Landscaping Services</h2>
                             <p class="mb-1-9 mb-md-5">Say hello to Belen's premier landscaping company, where quality meets craftsmanship in the heart of New Mexico. Our company specializes in transforming visions into reality, 
 				    providing top-notch landscaping services tailored to the unique demands of Belen's environment. From developing robust foundations and durable driveways to elegant drive-in pathways, 
